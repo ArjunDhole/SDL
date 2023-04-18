@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notification Popup Example</title>
+	<style>
+		#popup {
+			display: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		}
+	</style>
+</head>
+<body>
+	<button onclick="showPopup()">Show Popup</button>
+	<div id="popup">
+		<p>This is a notification popup!</p>
+		<button onclick="hidePopup()">Close</button>
+	</div>
+	<script>
+		function showPopup() {
+			document.getElementById("popup").style.display = "block";
+		}
+		function hidePopup() {
+			document.getElementById("popup").style.display = "none";
+		}
+	</script>
+</body>
+</html>

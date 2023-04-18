@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook Registration Form</title>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input[type="text"], input[type="email"], input[type="password"], select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="text-center">Facebook Registration Form</h2>
+    <form id="fb-form" onsubmit="return validateForm()">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lname" placeholder="Enter your last name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option value="">--Select--</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <input type="submit" value="Register">
+    </form>
+
+    <script>
+      function validateForm() {
+        var fname = document.getElementById("fname").value.trim();
+        var lname = document.getElementById("lname").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var password = document.getElementById("password").value.trim();
+        var gender = document.getElementById("gender").value.trim();
+        var error = "";
+
+        if (fname == "") {
+          error += "First Name is required\n";
+        }
+        if (lname == "") {
+          error += "Last Name is required\n";
+        }
+        if (email == "") {
+          error += "Email is required\n";
+        } else {
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            error += "Invalid Email format\n";
+          }
+        }
+        if (password == "") {
+          error += "Password is required\n";
+        }
+        if (gender == "") {
+          error += "Gender is required\n";
+        }
+
+        if (error != "") {
+          alert(error);
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
